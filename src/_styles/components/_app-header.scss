@@ -1,0 +1,57 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.app-header-container {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.app-header-search {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.app-header-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.app-header-user-menu {
+  width: 14rem;
+}
+
+.app-header-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.app-header-user-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.app-header-user-email {
+  font-size: 0.75rem;
+  line-height: 1;
+  color: hsl(var(--muted-foreground));
+}
+
+.app-header-avatar-button {
+  position: relative;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 9999px;
+}
+
+.app-header-avatar {
+  height: 2rem;
+  width: 2rem;
+}

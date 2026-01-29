@@ -1,0 +1,23 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.kanban-board-container {
+  display: flex;
+  gap: $spacing-md;
+  overflow-x: auto;
+  padding: $spacing-md;
+  height: 100%;
+}
+
+.kanban-board-loading {
+  @include flex-center;
+  height: 100%;
+  padding: $spacing-xl;
+}
+
+.kanban-board-empty {
+  @include flex-center;
+  height: 100%;
+  padding: $spacing-xl;
+  color: $gray-500;
+}

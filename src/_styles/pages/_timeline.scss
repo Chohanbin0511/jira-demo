@@ -1,0 +1,56 @@
+// Gantt Chart Overrides for Jira-like look
+
+.gantt-task-react-wrapper {
+  border: 1px solid #e2e8f0; // border-gray-200
+  border-radius: 0.5rem; // rounded-lg
+  background-color: white;
+
+  // Header Styling
+  .calendar-header {
+    background-color: #f8fafc !important; // bg-slate-50
+    border-bottom: 1px solid #e2e8f0;
+    
+    text {
+      fill: #64748b !important; // text-slate-500
+      font-weight: 600;
+      font-size: 0.75rem;
+    }
+  }
+
+  // Grid Lines
+  .grid-row {
+    border-bottom: 1px solid #f1f5f9; // slate-100
+  }
+  
+  .grid-tick {
+    stroke: #f1f5f9;
+  }
+
+  // Task Bars
+  .bar-wrapper {
+    cursor: pointer;
+    
+    .bar {
+      rx: 4; // Rounded corners for SVG rect
+      ry: 4;
+      stroke-width: 0;
+    }
+
+    .bar-progress {
+      rx: 4;
+      ry: 4;
+    }
+
+    &:hover {
+      .bar {
+        filter: brightness(0.95);
+      }
+    }
+  }
+
+  // Today Line
+  .today-line {
+    stroke: #ef4444; // red-500
+    stroke-width: 2px;
+  }
+}
