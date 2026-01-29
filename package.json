@@ -13,7 +13,8 @@
     "format:check": "prettier --check .",
     "msw:init": "msw init public/ --save",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "postinstall": "npx auth secret || true"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
