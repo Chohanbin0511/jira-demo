@@ -1,0 +1,41 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.kanban-board-container {
+  display: flex;
+  gap: $spacing-sm;
+  overflow-x: auto;
+  padding: 0;
+  height: 100%;
+  
+  @media (min-width: $breakpoint-md) {
+    gap: $spacing-md;
+    padding: $spacing-md;
+  }
+  
+  // 모바일에서 스크롤바 숨기기 (선택사항)
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  
+  // 모바일에서 컬럼이 전체 너비를 차지하도록
+  @media (max-width: $breakpoint-md - 1px) {
+    > div {
+      width: 100%;
+      min-width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
+}
+
+.kanban-board-loading {
+  @include flex-center;
+  height: 100%;
+  padding: $spacing-xl;
+}
+
+.kanban-board-empty {
+  @include flex-center;
+  height: 100%;
+  padding: $spacing-xl;
+  color: $gray-500;
+}
