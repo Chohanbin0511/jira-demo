@@ -1,0 +1,4 @@
+{
+  "installCommand": "npm install --legacy-peer-deps",
+  "buildCommand": "npx auth secret || true && npm run build"
+}
