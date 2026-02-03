@@ -99,7 +99,7 @@ export async function callNativeMethod<T = unknown>(
 
       if (platform === "android" && window.Android) {
         // Android WebView 통신
-        const androidMethod = window.Android[method];
+        const androidMethod = window.Android[method as string];
         if (androidMethod) {
           const result = androidMethod(JSON.stringify(request));
           // Android는 동기적으로 결과를 반환할 수 있음
@@ -117,7 +117,7 @@ export async function callNativeMethod<T = unknown>(
         }
       } else if (platform === "ios" && window.webkit?.messageHandlers) {
         // iOS WebView 통신
-        const handler = window.webkit.messageHandlers[method];
+        const handler = window.webkit.messageHandlers[method as string];
         if (handler) {
           handler.postMessage(request);
         } else {
@@ -126,7 +126,7 @@ export async function callNativeMethod<T = unknown>(
         }
       } else if (window.NativeBridge) {
         // 커스텀 브릿지 사용
-        window.NativeBridge.callNative(method, params).then(
+        window.NativeBridge.callNative(method as string, params).then(
           (data) => {
             const response: BridgeResponse = {
               id: requestId,
@@ -142,7 +142,12 @@ export async function callNativeMethod<T = unknown>(
               success: false,
               error: {
                 code: "CUSTOM_ERROR",
-                message: error.message || "Unknown error",
+                message:
+                  error instanceof Error
+                    ? error.message
+                    : typeof error === "string"
+                      ? error
+                      : "Unknown error",
               },
               timestamp: Date.now(),
             };
@@ -217,7 +222,7 @@ export async function openNativeScreen(
  * 공유 기능
  */
 export async function share(options: ShareOptions): Promise<void> {
-  return callNativeMethod<void>("share", options);
+  return callNativeMethod<void>("share", options as Record<string, unknown>);
 }
 
 /**
