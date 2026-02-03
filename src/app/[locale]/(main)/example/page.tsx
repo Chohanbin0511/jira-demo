@@ -16,6 +16,7 @@ import {
   ProjectErrorState,
   ProjectGrid,
 } from "@/_features/example/components";
+import { MobileBridgeExample } from "@/_features/common/components/MobileBridgeExample";
 
 export default function DashboardPage() {
   const t = useTranslations("HomePage");
@@ -100,6 +101,19 @@ export default function DashboardPage() {
             <Button size="default">기본 크기</Button>
             <Button size="lg">큰 버튼</Button>
           </div>
+        </CardContent>
+      </Card>
+
+      {/* 모바일 브릿지 예제 섹션 */}
+      <Card className="mt-8">
+        <CardHeader>
+          <CardTitle>모바일 네이티브 브릿지</CardTitle>
+          <CardDescription>
+            Android/iOS WebView와 통신하는 브릿지 예제
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <MobileBridgeExample />
         </CardContent>
       </Card>
 </div>
